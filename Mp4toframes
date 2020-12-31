@@ -1,0 +1,26 @@
+import cv2
+
+vid_path = '/home/abhisheksingh/Videos/videoplayback.mp4' 
+
+# Opening the mp4 file
+cap= cv2.VideoCapture(vid_path)
+#cap = cv2.VideoCapture(0)
+#length = int(cap.get(cv2.))
+
+frameCount=0
+while(cap.isOpened()):
+    #if frameCount%inp == 0:
+        ret, frame = cap.read() #ret is either true or false(a boolean)
+        #print(cap.read())
+        if ret == False:   #executed when the video ends
+            break
+        #if
+        cv2.imwrite('/home/abhisheksingh/mydir/MyFolder/MyPythonPrac/Frames/ f'+str(frameCount)+'.jpg',frame)
+        # /home/abhisheksingh/mydir/MyFolder/MyPythonPrac/Frames/
+        frameCount+=1
+    
+    
+    
+print(frameCount)
+cap.release()
+cv2.destroyAllWindows()
